@@ -6,11 +6,13 @@ import Grid from "@mui/material/Grid";
 import { useState } from "react";
 import Grids from "./grids";
 import {
+  Button,
   FormControl,
   FormControlLabel,
   FormLabel,
   Radio,
   RadioGroup,
+  Stack,
   TextField,
   Typography,
 } from "@mui/material";
@@ -57,7 +59,7 @@ export default function Form() {
       <Typography sx={{display:"flex", alignItems:"center",justifyContent:"center", width:"40%"}}  variant="h5" spacing={2}>Guest Information:</Typography>
       <Grids />
       <FormControl sx={{display:"flex", alignItems:"center",justifyContent:"center", width:"100%"}} >
-        <FormLabel id="controlled-radio-button" required>
+        <FormLabel  required>
           Gender:
         </FormLabel>
         <RadioGroup row name="radio-button-group">
@@ -97,10 +99,11 @@ export default function Form() {
           </RadioGroup>
           <Grid size={12} >
               <Typography>Any special requests?</Typography>
-              <TextField multiline  sx={{width:"100%"}} rows={6} label="type here..."></TextField>
-
-
+              <TextField multiline  sx={{width:"100%"}} rows={4} label="type here..."></TextField>
           </Grid>
+          <Stack>
+            <Button sx={{backgroundColor:"#42526e"}} variant="contained">Submit</Button>
+          </Stack>
      
 
 
