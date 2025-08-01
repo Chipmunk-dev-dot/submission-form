@@ -34,15 +34,14 @@ export default function Form() {
   const [lastName, setLastName] = useState("");
   const [email, setEmail] = useState("");
   const [gender, setGender] = useState("female"); //I'm setting female as my initial value
-  
 
   function handleSubmit(e) {
     e.preventDefault();
-    console.log("You clecked submit", firstName, lastName, email, gender);
+    console.log("You clicked submit");
   }
 
   return (
-    <Box sx={{ flexGrow: 1 }}>
+    <Box  >
       <Box
         sx={{
           display: "flex",
@@ -56,65 +55,116 @@ export default function Form() {
           HOTEL BOOKING
         </Typography>
       </Box>
-      <Typography sx={{display:"flex", alignItems:"center",justifyContent:"center", width:"40%"}}  variant="h5" spacing={2}>Guest Information:</Typography>
+      <Typography
+        sx={{
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+          width: "40%",
+        }}
+        variant="h5"
+        spacing={2}
+      >
+        Guest Information:
+      </Typography>
       <Grids />
-      <FormControl sx={{display:"flex", alignItems:"center",justifyContent:"center", width:"100%"}} >
-        <FormLabel  required>
-          Gender:
-        </FormLabel>
+      <FormControl
+        sx={{
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+          width: "100%",
+        }}
+      >
+        <FormLabel required>Gender:</FormLabel>
         <RadioGroup row name="radio-button-group">
           <FormControlLabel value="female" control={<Radio />} label="Female" />
           <FormControlLabel value="male" control={<Radio />} label="Male" />
           <FormControlLabel value="other" control={<Radio />} label="Other" />
         </RadioGroup>
       </FormControl>
-      <Typography sx={{display:"flex",alignItems:"center",justifyContent:"center", width:"40%"}} variant="h5">Booking Details:</Typography>
-      <br/>
-       <Grid container sx={{display:"flex",alignItems:"center",justifyContent:"center"}} > 
-        <Grid container sx={{width:"70%"}} spacing={2}>
-          <Grid size={6} >
+      <Typography
+        sx={{
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+          width: "40%",
+        }}
+        variant="h5"
+      >
+        Booking Details:
+      </Typography>
+      <br />
+      <Grid
+        container
+        sx={{ display: "flex", alignItems: "center", justifyContent: "center" }}
+      >
+        <Grid container sx={{ width: "70%" }} spacing={2}>
+          <Grid size={6}>
             <label>Check-in-date:</label>
-            < TextField type="date"  sx={{width:"100%"}} required/>
-          </Grid>
-          <Grid size={6} >
-             <label>Check-out-date:</label>
-            <TextField type="date" sx={{width:"100%"}} required/>
+            <TextField type="date" sx={{ width: "100%" }} required />
           </Grid>
           <Grid size={6}>
-            <TextField type="number" label="Number of guests" sx={{width:"100%"}}  required/>
+            <label>Check-out-date:</label>
+            <TextField type="date" sx={{ width: "100%" }} required />
+          </Grid>
+          <Grid size={6}>
+            <TextField
+              type="number"
+              label="Number of guests"
+              sx={{ width: "100%" }}
+              required
+            />
           </Grid>
           <Grid size={6}>
             <FormLabel>Room Type:</FormLabel>
             <RadioGroup row name="room-type">
-             <FormControlLabel value="single" control={<Radio/>} label="Single"/>
-             <FormControlLabel value="double" control={<Radio/>} label="Double"/>
-             <FormControlLabel value="suite" control={<Radio/>} label="Suite"/>
-          </RadioGroup>
+              <FormControlLabel
+                value="single"
+                control={<Radio />}
+                label="Single"
+              />
+              <FormControlLabel
+                value="double"
+                control={<Radio />}
+                label="Double"
+              />
+              <FormControlLabel
+                value="suite"
+                control={<Radio />}
+                label="Suite"
+              />
+            </RadioGroup>
           </Grid>
-          <Typography >Payment Methods:</Typography>
+          <Typography>Payment Methods:</Typography>
           <RadioGroup row>
-            <FormControlLabel value="cash" control={<Radio/>} label="Cash"/>
-            <FormControlLabel value="card" control={<Radio/>} label="Card">
-            </FormControlLabel>
+            <FormControlLabel value="cash" control={<Radio />} label="Cash" />
+            <FormControlLabel
+              value="card"
+              control={<Radio />}
+              label="Card"
+            ></FormControlLabel>
           </RadioGroup>
-          <Grid size={12} >
-              <Typography>Any special requests?</Typography>
-              <TextField multiline  sx={{width:"100%"}} rows={4} label="type here..."></TextField>
+          <Grid size={12}>
+            <Typography>Any special requests?</Typography>
+            <TextField
+              multiline
+              sx={{ width: "100%" }}
+              rows={4}
+              label="type here..."
+            ></TextField>
           </Grid>
           <Stack>
-            <Button sx={{backgroundColor:"#42526e"}} variant="contained">Submit</Button>
+            <Button
+              onClick={handleSubmit}
+              sx={{ backgroundColor: "#42526e" }}
+              variant="contained"
+            >
+              Submit
+            </Button>
           </Stack>
-     
-
-
-        
-          
-          
         </Grid>
-     
       </Grid>
-      
-     
     </Box>
   );
 }
